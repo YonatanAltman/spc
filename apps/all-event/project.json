@@ -2,6 +2,11 @@
   "name": "all-event",
   "$schema": "../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
+  "generators": {
+    "@schematics/angular:component": {
+      "changeDetection": "OnPush"
+    }
+  },
   "sourceRoot": "apps/all-event/src",
   "prefix": "spc",
   "targets": {
@@ -19,6 +24,9 @@
           "apps/all-event/src/favicon.ico",
           "apps/all-event/src/assets"
         ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["apps/all-event/src/assets/styles"]
+        },
         "styles": ["apps/all-event/src/styles.scss"],
         "scripts": []
       },

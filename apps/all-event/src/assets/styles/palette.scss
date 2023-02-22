@@ -1,0 +1,32 @@
+// Define the color variables
+$color-primary: #537FE7;
+$color-secondary: #C0EEF2;
+$color-background: #E9F8F9;
+$color-text: #181823;
+
+// Define additional shades of the primary and secondary colors
+$color-primary-light: lighten($color-primary, 10%);
+$color-primary-dark: darken($color-primary, 10%);
+$color-secondary-light: lighten($color-secondary, 10%);
+$color-secondary-dark: darken($color-secondary, 10%);
+
+// Define the color palette as a map
+$colors: (
+  "primary": $color-primary,
+  "primary-light": $color-primary-light,
+  "primary-dark": $color-primary-dark,
+  "secondary": $color-secondary,
+  "secondary-light": $color-secondary-light,
+  "secondary-dark": $color-secondary-dark,
+  "background": $color-background,
+  "text": $color-text
+);
+
+// Export the color palette as a map
+@function colors($key: null) {
+  @if $key {
+    @return map-get($colors, $key);
+  } @else {
+    @return $colors;
+  }
+}

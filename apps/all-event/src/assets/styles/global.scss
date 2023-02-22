@@ -1,32 +1,30 @@
-// Define the color variables
-$color-primary: #537FE7;
-$color-secondary: #C0EEF2;
-$color-background: #E9F8F9;
-$color-text: #181823;
+@import "palette";
 
-// Define additional shades of the primary and secondary colors
-$color-primary-light: lighten($color-primary, 10%);
-$color-primary-dark: darken($color-primary, 10%);
-$color-secondary-light: lighten($color-secondary, 10%);
-$color-secondary-dark: darken($color-secondary, 10%);
-
-// Define the color palette as a map
-$colors: (
-  "primary": $color-primary,
-  "primary-light": $color-primary-light,
-  "primary-dark": $color-primary-dark,
-  "secondary": $color-secondary,
-  "secondary-light": $color-secondary-light,
-  "secondary-dark": $color-secondary-dark,
-  "background": $color-background,
-  "text": $color-text
-);
-
-// Export the color palette as a map
-@function colors($key: null) {
-  @if $key {
-    @return map-get($colors, $key);
-  } @else {
-    @return $colors;
+$all-class: "primary", "primary-light", "primary-dark", "secondary", "secondary-light", "secondary-dark", "background";
+@each $cls in $all-class {
+  .bgr-#{$cls} {
+    background-color: colors(#{$cls});
   }
 }
+
+$view-height: 100vh;
+$view-width: 95vw;
+$header-height: 40px;
+$content-margin: 10px;
+$content-height: calc(#{$view-height} - #{$header-height});
+$menu-width: 200px;
+$content-width: calc(#{$view-width} - #{$menu-width});
+
+.spc-content{
+  width:$content-width;
+  height: $content-height;
+  margin: $content-margin;
+}
+spc-header{
+  height:$header-height;
+}
+spc-side-bar{
+  height:$view-height;
+  width: $menu-width;
+}
+

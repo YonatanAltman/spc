@@ -1,10 +1,10 @@
-import { NxWelcomeComponent } from './nx-welcome.component';
-import { RouterModule } from '@angular/router';
-import { Component } from '@angular/core';
+import {RouterModule} from '@angular/router';
+import {Component} from '@angular/core';
+import {LayoutComponent} from "@spc/common/ui/layout";
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule],
+  imports: [ RouterModule,LayoutComponent],
   selector: 'spc-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
